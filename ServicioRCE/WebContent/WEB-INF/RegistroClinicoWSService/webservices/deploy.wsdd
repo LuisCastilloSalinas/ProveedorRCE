@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from RegistroClinicoWSService WSDL service -->
+
+  <service name="RegistroClinicoWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservices"/>
+      <parameter name="wsdlServiceElement" value="RegistroClinicoWSService"/>
+      <parameter name="schemaQualified" value="http://webservices"/>
+      <parameter name="wsdlServicePort" value="RegistroClinicoWS"/>
+      <parameter name="className" value="webservices.RegistroClinicoWS"/>
+      <parameter name="wsdlPortType" value="RegistroClinicoWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://webservices" xmlns:retNS="http://webservices" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getRegistroClinico" qname="operNS:getRegistroClinico" returnQName="retNS:getRegistroClinicoReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://webservices" xmlns:retNS="http://webservices" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getRegistroClinicoPorNombre" qname="operNS:getRegistroClinicoPorNombre" returnQName="retNS:getRegistroClinicoPorNombreReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nombre" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservices" xmlns:retNS="http://webservices" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="crearRegistroClinico" qname="operNS:crearRegistroClinico" returnQName="retNS:crearRegistroClinicoReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idHora" type="tns:int"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:anamnesis" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:alergias" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:examenFisico" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:indicacionMedica" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:indicacionCierreCaso" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:hipotesis" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:diagnostico" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:detalleGes" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:receta" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:certificados" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:actividades" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:procedimientos" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="getRegistroClinicoPorNombre getRegistroClinico crearRegistroClinico"/>
+
+  </service>
+</deployment>

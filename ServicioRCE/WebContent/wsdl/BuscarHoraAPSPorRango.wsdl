@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservices" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservices" xmlns:intf="http://webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservices" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="obtenerHoraAPSPorRango">
+    <complexType>
+     <sequence>
+      <element name="fecha1" type="xsd:dateTime"/>
+      <element name="fecha2" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtenerHoraAPSPorRangoResponse">
+    <complexType>
+     <sequence>
+      <element name="obtenerHoraAPSPorRangoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="obtenerHoraAPSPorRangoRequest">
+
+      <wsdl:part element="impl:obtenerHoraAPSPorRango" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obtenerHoraAPSPorRangoResponse">
+
+      <wsdl:part element="impl:obtenerHoraAPSPorRangoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BuscarHoraAPSPorRango">
+
+      <wsdl:operation name="obtenerHoraAPSPorRango">
+
+         <wsdl:input message="impl:obtenerHoraAPSPorRangoRequest" name="obtenerHoraAPSPorRangoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:obtenerHoraAPSPorRangoResponse" name="obtenerHoraAPSPorRangoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BuscarHoraAPSPorRangoSoapBinding" type="impl:BuscarHoraAPSPorRango">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="obtenerHoraAPSPorRango">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="obtenerHoraAPSPorRangoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="obtenerHoraAPSPorRangoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BuscarHoraAPSPorRangoService">
+
+      <wsdl:port binding="impl:BuscarHoraAPSPorRangoSoapBinding" name="BuscarHoraAPSPorRango">
+
+         <wsdlsoap:address location="http://localhost:8080/ProveedorServicioHospital/services/BuscarHoraAPSPorRango"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
